@@ -21,6 +21,7 @@ Since there is no easy way to get the data out from the ISR, you have to use glo
 - throttle
 - roll
 - pitch
+
 These each have their own command number, and is written to whenever the master sends a new value. You can replace these variables with your own, or even add some more. Just change the variables in the header file as well.
 
 # How it works
