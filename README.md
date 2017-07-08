@@ -7,14 +7,20 @@ This is relatively simple: connect a clock line between any pins (pin 10 on ardu
 
 ###### Master Code
 To run this protocol on your master device, call this function:
+
 `sendData(int command, int data);`
+
 The command and data parameters can be whatever you desire, as long as it is between 0-255. The command parameter is only used to specify what the data is to be used for on the slave side.
 
 ###### Slave Code
 On the slave side, run this function in the setup:
+
 `beginSerial();`
+
 This sets up the interrupt settings for the arduino. These **WILL** change based on your chip, so be aware of that. The default runs the interrupt on pin 10 on an arduino. Also in the ISR, pin 9 is being read by the line:
+
 `if (PINB & B00000010 ) {`
+
 If you with to change this to a different pin, you have to change these values. `PINB` is the block of pins and `B00000010` is pin 9. If you aren't sure how this works, search on google. 
 
 Since there is no easy way to get the data out from the ISR, you have to use global variables. I have three currently being used:
